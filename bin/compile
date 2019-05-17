@@ -35,3 +35,4 @@ chmod +x "$VENDOR_DIR/p7zip/bin/lzop"
 #cd /app/bin/temp/unrar; install -v -m755 unrar "$VENDOR_DIR/p7zip/bin"
 
 echo "export PATH=\$PATH:/app/vendor/p7zip/bin" >> $PROFILE_PATH
+echo "export LD_LIBRARY_PATH=/app/vendor/p7zip/bin:\$LD_LIBRARY_PATH" >> $PROFILE_PATH
