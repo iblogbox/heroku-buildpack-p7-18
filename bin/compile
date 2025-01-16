@@ -23,8 +23,9 @@ SOURCE_DIR="$(dirname $0)/../compiled"
 echo "-----> Copying files to $VENDOR_DIR"
 
 P7_VERSION=""
-if [ -e "runtime_p7.txt" ];then
-   P7_VERSION=$(cat runtime_p7.txt)
+if [ -f "$BUILD_DIR/runtime_p7.txt" ]; then
+	P7_VERSION=`cat "$BUILD_DIR/runtime_p7.txt"`	
+	P7_VERSION=`echo $value | sed 's/ *$//g'`
 fi
 if [[ "$P7_VERSION" == "16_02" ]]; then
    cp -r "$SOURCE_DIR/p7zip_16_02/p7zip" "$VENDOR_DIR"
