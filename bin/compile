@@ -28,6 +28,7 @@ if [ -e "runtime_p7.txt" ];then
 fi
 if [[ "$P7_VERSION" == "16_02" ]]; then
    cp -r "$SOURCE_DIR/p7zip_16_02/p7zip" "$VENDOR_DIR"
+   echo "-----> Use the p7zip 16_02"
 else
    cp -r "$SOURCE_DIR/p7zip" "$VENDOR_DIR"   
 fi
