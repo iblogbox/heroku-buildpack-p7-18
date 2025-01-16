@@ -21,7 +21,17 @@ mkdir -p $(dirname $PROFILE_PATH)
 
 SOURCE_DIR="$(dirname $0)/../compiled"
 echo "-----> Copying files to $VENDOR_DIR"
-cp -r "$SOURCE_DIR/p7zip" "$VENDOR_DIR"
+
+P7_VERSION=""
+if [ -e "runtime_p7.txt" ];then
+   P7_VERSION=$(cat runtime_p7.txt)
+fi
+if [[ "$P7_VERSION" == "16_02" ]]; then
+   cp -r "$SOURCE_DIR/p7zip_16_02/p7zip" "$VENDOR_DIR"
+else
+   cp -r "$SOURCE_DIR/p7zip" "$VENDOR_DIR"   
+fi
+
 chmod +x "$VENDOR_DIR/p7zip/bin/7z"
 chmod +x "$VENDOR_DIR/p7zip/bin/7za"
 chmod +x "$VENDOR_DIR/p7zip/bin/unrar"
